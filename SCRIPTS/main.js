@@ -26,7 +26,7 @@ document.ontouchstart = (e) => {
     let target = document.elementFromPoint(x, y);
 
     if (target.tagName == "DIV") {
-        target.classList.add("fill");
+        target.classList.toggle("fill");
     }
 }
 
