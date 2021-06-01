@@ -10,6 +10,13 @@ resetButton.addEventListener('click', (e) => {
     drawSquareGrid(prompt("Choose a grid size."));
 });
 
+document.ontouchmove = (e) => {
+    let x = e.touches[0].pageX;
+    let y = e.touches[0].pageY;
+
+    document.elementFromPoint(x, y).classList.toggle("fill");
+}
+
 // FUNCTION
 function drawSquareGrid(x) {
     let gridArea = x * x;
