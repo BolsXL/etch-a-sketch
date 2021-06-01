@@ -2,7 +2,7 @@
 const gridContainer = document.querySelector(".page-wrap");
 
 // RUNNING CODE
-drawSquareGrid(32);
+drawSquareGrid(64);
 
 // FUNCTION
 function drawSquareGrid(x) {
