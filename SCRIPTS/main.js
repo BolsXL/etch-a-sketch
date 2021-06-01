@@ -1,8 +1,14 @@
 // VARIABLES
 const gridContainer = document.querySelector(".page-wrap");
+const resetButton = document.querySelector("button");
 
 // RUNNING CODE
-drawSquareGrid(64);
+drawSquareGrid(16);
+
+resetButton.addEventListener('click', (e) => {
+    resetGrid();
+    drawSquareGrid(prompt("Choose a grid size."));
+});
 
 // FUNCTION
 function drawSquareGrid(x) {
@@ -15,14 +21,20 @@ function drawSquareGrid(x) {
         gridSquare.style['border'] = `1px dotted hsl(0, 0%, 85%)`;
         gridSquare.style['width'] = '100%';
         gridSquare.style['height'] = '100%';
-        gridSquare.addEventListener('mousedown', (e) => {
+        gridSquare.addEventListener('pointerdown', (e) => {
             gridSquare.classList.toggle("fill");
         });
-        gridSquare.addEventListener('mouseover', (e) => {
+        gridSquare.addEventListener('pointerover', (e) => {
             if (e.buttons == 1) {
                 gridSquare.classList.toggle("fill");
             }
         });
         gridContainer.appendChild(gridSquare);
+    }
+}
+
+function resetGrid() {
+    while(gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
     }
 }
