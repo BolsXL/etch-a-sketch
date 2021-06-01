@@ -13,8 +13,21 @@ resetButton.addEventListener('click', (e) => {
 document.ontouchmove = (e) => {
     let x = e.touches[0].pageX;
     let y = e.touches[0].pageY;
+    let target = document.elementFromPoint(x, y);
 
-    document.elementFromPoint(x, y).classList.toggle("fill");
+    if (target.tagName == "DIV") {
+        target.classList.add("fill");
+    }
+}
+
+document.ontouchstart = (e) => {
+    let x = e.touches[0].pageX;
+    let y = e.touches[0].pageY;
+    let target = document.elementFromPoint(x, y);
+
+    if (target.tagName == "DIV") {
+        target.classList.add("fill");
+    }
 }
 
 // FUNCTION
@@ -29,7 +42,9 @@ function drawSquareGrid(x) {
         gridSquare.style['width'] = '100%';
         gridSquare.style['height'] = '100%';
         gridSquare.addEventListener('pointerdown', (e) => {
-            gridSquare.classList.toggle("fill");
+            if (e.buttons == 1) {
+                gridSquare.classList.toggle("fill");
+            }
         });
         gridSquare.addEventListener('pointerover', (e) => {
             if (e.buttons == 1) {
