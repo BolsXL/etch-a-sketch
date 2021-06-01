@@ -4,9 +4,19 @@
     box-sizing: border-box;
 }
 
+html {
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
+}
+
 .page-wrap {
     width: 100vw;
     height: 100vh;
 
     display: grid;
+}
+
+.fill {
+    background-color: black !important;
 }
